@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HospitalManagement.Models;
 using HospitalManagement.Models.Base;
+using HospitalManagement.Models.Contracts;
 
 namespace HospitalManagement
 {
@@ -18,10 +19,11 @@ namespace HospitalManagement
     Properties: ID, FirstName, LastName, Salary
 2. Patient 
     Properties: ID, FirstName, LastName, Illness, List of Simptoms
-3. Simptom
+3. Symptom
     Properties: Name, FromDate, ToDate, Despcription
 4. Diagnose
     Properties: Name, Despcription
+
 5. Exam
     Properties: Time, Doctor, Patient, list of Simptoms, Diagnose
 6. Hospital:
@@ -30,7 +32,10 @@ namespace HospitalManagement
         static void Main(string[] args)
         {
             Human doctor = new Doctor();
-            //var human = new Human();
+            Nurse nurse1 = new Nurse();
+            IEmployee nurse2 = new Nurse();
+            IDoctor doctor2 = new Doctor();
+            IEmployee doctor3 = doctor2;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using HospitalManagement.Models.Base;
+using HospitalManagement.Models.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Models
 {
-    public class Doctor : Human
+    /*
+     * 2. Nurse
+    Properties: ID, FirstName, LastName, Salary
+     */
+    public class Nurse : Human, INurse
     {
-        //Properties: ID, FirstName, LastName, Specialty, Salary
-
-        public string Speciality { get; set; }
+        //public decimal Salary { get; set; }
         public decimal Salary { get; set; }
     }
 }

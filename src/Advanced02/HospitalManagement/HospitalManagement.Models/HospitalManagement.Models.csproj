@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AAD9B255-6FCE-4D6B-BBC3-D20E338BF877}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>HospitalManagement</RootNamespace>
-    <AssemblyName>HospitalManagement</AssemblyName>
+    <ProjectGuid>{506E797B-DDC1-4FAC-9667-885905625726}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HospitalManagement.Models</RootNamespace>
+    <AssemblyName>HospitalManagement.Models</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,17 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Contracts\IDoctor.cs" />
+    <Compile Include="Contracts\IEmployee.cs" />
+    <Compile Include="Contracts\INurse.cs" />
+    <Compile Include="Models\Base\Human.cs" />
+    <Compile Include="Models\Diagnose.cs" />
+    <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\Hospital.cs" />
+    <Compile Include="Models\Nurse.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Symptom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HospitalManagement.Models\HospitalManagement.Models.csproj">
-      <Project>{506e797b-ddc1-4fac-9667-885905625726}</Project>
-      <Name>HospitalManagement.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
