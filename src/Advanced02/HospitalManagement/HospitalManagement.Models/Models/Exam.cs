@@ -1,8 +1,6 @@
-﻿using System;
+﻿using HospitalManagement.Models.Contracts;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace HospitalManagement.Models
 {
@@ -10,7 +8,7 @@ namespace HospitalManagement.Models
      5. Exam
     Properties: Time, Doctor, Patient, list of Simptoms, Diagnose
          */
-    public class Exam
+    public class Exam : IExam
     {
         public DateTime Time { get; set; }
         public Doctor Doctor { get; set; }

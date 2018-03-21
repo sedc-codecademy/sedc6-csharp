@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Models
 {
-    public class Doctor : Human, IDoctor
+    public class Doctor : IDoctor
     {
-        //Properties: ID, FirstName, LastName, Specialty, Salary
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Speciality { get; set; }
         public decimal Salary { get; set; }
     }

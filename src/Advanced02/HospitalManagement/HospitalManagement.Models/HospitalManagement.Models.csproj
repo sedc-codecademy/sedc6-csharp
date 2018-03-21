@@ -40,8 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Base\IHuman.cs" />
+    <Compile Include="Contracts\IDiagnose.cs" />
+    <Compile Include="Contracts\IExam.cs" />
+    <Compile Include="Contracts\IHospital.cs" />
+    <Compile Include="Contracts\IPatient.cs" />
+    <Compile Include="Contracts\ISymptom.cs" />
     <Compile Include="Contracts\IDoctor.cs" />
-    <Compile Include="Contracts\IEmployee.cs" />
+    <Compile Include="Contracts\Base\IEmployee.cs" />
     <Compile Include="Contracts\INurse.cs" />
     <Compile Include="Models\Base\Human.cs" />
     <Compile Include="Models\Diagnose.cs" />

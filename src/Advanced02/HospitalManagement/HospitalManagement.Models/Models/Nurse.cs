@@ -12,9 +12,11 @@ namespace HospitalManagement.Models
      * 2. Nurse
     Properties: ID, FirstName, LastName, Salary
      */
-    public class Nurse : Human, INurse
+    public class Nurse : INurse
     {
-        //public decimal Salary { get; set; }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public decimal Salary { get; set; }
     }
 }

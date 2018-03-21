@@ -1,5 +1,4 @@
-﻿using HospitalManagement.Models.Base;
-using HospitalManagement.Models.Contracts.Base;
+﻿using HospitalManagement.Models.Contracts.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace HospitalManagement.Models.Contracts
 {
-    public interface INurse : IHuman, IEmployee
+    public interface IPatient : IHuman
     {
-
+        string Illness { get; set; }
+        List<Symptom> Symptoms { get; set; }
     }
 }

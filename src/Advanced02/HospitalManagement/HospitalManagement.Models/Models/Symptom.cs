@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalManagement.Models.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace HospitalManagement.Models
      3. Symptom
     Properties: Name, FromDate, ToDate, Description
          */
-    public class Symptom
+    public class Symptom : ISymptom
     {
         public string Name { get; set; }
         public DateTime FromDate { get; set; }

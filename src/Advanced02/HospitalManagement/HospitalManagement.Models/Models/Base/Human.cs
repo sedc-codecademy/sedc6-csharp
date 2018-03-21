@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HospitalManagement.Models.Contracts.Base;
 
 namespace HospitalManagement.Models.Base
 {
-    public abstract class Human
+    public abstract class Human : IHuman
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

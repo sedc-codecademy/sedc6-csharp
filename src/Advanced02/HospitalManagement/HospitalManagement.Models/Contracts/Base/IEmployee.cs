@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HospitalManagement.Models.Base
+namespace HospitalManagement.Models.Contracts.Base
 {
     public interface IEmployee
     {

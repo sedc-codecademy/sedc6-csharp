@@ -1,18 +1,14 @@
-﻿using HospitalManagement.Models.Base;
-using System;
+﻿using HospitalManagement.Models.Contracts;
+using HospitalManagement.Models.Base;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HospitalManagement.Models
 {
-    /*
-     * Illness, 
-     * List of Symptoms
-     */
-    public class Patient : Human
+    public class Patient : IPatient
     {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Illness { get; set; }
         public List<Symptom> Symptoms { get; set; }
     }
