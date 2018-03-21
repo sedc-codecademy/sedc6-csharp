@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
+using System.Data.SqlClient;
 
 namespace ArrayListDemo
 {
@@ -19,6 +21,76 @@ namespace ArrayListDemo
     class Program
     {
         static void Main(string[] args)
+        {
+            int[] array = new int[] { 1,2,3};
+            foreach (var item in array)
+            {
+                Console.WriteLine(item);
+            }
+            Array.Reverse(array);
+            foreach (var item in array)
+            {
+                Console.WriteLine(item);
+            }
+            int myNumber = 100;
+            Console.WriteLine($"myNumber: {myNumber}");
+            myNumber = Doubleify(myNumber);
+            Console.WriteLine($"myNumber: {myNumber}");
+
+        }
+        static int Doubleify(int number)
+        {
+            return number * 2;
+        }
+
+        static void Print(object item)
+        {
+            Console.WriteLine(item);
+        }
+
+
+
+
+        static void Example2()
+        {
+            try
+            {
+                //UNSAFE CODE
+                throw new Exception("invalid data");
+            }
+            catch (SqlException e)
+            {
+                //log
+                throw;
+            }
+            catch (Exception e)
+            {
+                //z
+                throw;
+            }
+            finally
+            {
+
+            }
+
+
+            //var listString = new MyList<string>();
+            //var listInt = new MyList<int>();
+            //var myList = new List<string>();
+            //myList.Sort();
+            //myList.Reverse();
+
+            //listString.Add("red");
+            //listString.Add("red");
+            //listString.Add("red");
+            //listString.Add("red");
+            //listString.Remove("red");
+            //var count = listString.Count;
+
+
+        }
+
+        static void Example1()
         {
             //List<List<List<string>>> li = new List<List<List<string>>>();
             //var li2 = new List<List<List<string>>>();
@@ -44,19 +116,38 @@ namespace ArrayListDemo
             //    Console.WriteLine(item);
             //}
 
-            Queue<int> numbersQueue = new Queue<int>();
-            numbersQueue.Enqueue(1);
-            numbersQueue.Enqueue(2);
-            numbersQueue.Enqueue(3);
-            numbersQueue.Enqueue(4);
+            //Queue<int> numbersQueue = new Queue<int>();
 
-            int countBeforeFor = numbersQueue.Count;
-            for (int i = 0; i < countBeforeFor; i++)
-            {
-                Console.WriteLine(numbersQueue.Dequeue());
-            }
+            //numbersQueue.Enqueue(1);
+            //PrintQueueInfo(numbersQueue);
+
+            //numbersQueue.Enqueue(2);
+            //PrintQueueInfo(numbersQueue);
+
+            //numbersQueue.Dequeue();
+            //PrintQueueInfo(numbersQueue);
+
+            //numbersQueue.Enqueue(3);
+            //PrintQueueInfo(numbersQueue);
+
+            //numbersQueue.Enqueue(4);
+            //PrintQueueInfo(numbersQueue);
+
+            //int countBeforeFor = numbersQueue.Count;
+            //for (int i = 0; i < countBeforeFor; i++)
+            //{
+            //    Console.WriteLine(numbersQueue.Dequeue());
+            //}
+
+
 
             Console.ReadLine();
+        }
+
+        static void PrintQueueInfo<T>(Queue<T> queue)
+        {
+            Console.WriteLine("------------");
+            Console.WriteLine($"Count: {queue.Count}");
         }
     }
 }
