@@ -9,9 +9,9 @@ namespace HospitalManagement.Models.Contracts
     public interface IExam
     {
         DateTime Time { get; set; }
-        Doctor Doctor { get; set; }
-        Patient Patient { get; set; }
-        List<Symptom> Symtom { get; set; }
-        Diagnose Diagnose { get; set; }
+        IDoctor Doctor { get; set; }
+        IPatient Patient { get; set; }
+        ICollection<ISymptom> Symtom { get; set; }
+        IDiagnose Diagnose { get; set; }
     }
 }

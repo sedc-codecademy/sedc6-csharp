@@ -10,6 +10,6 @@ namespace HospitalManagement.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Illness { get; set; }
-        public List<Symptom> Symptoms { get; set; }
+        public ICollection<ISymptom> Symptoms { get; set; }
     }
 }

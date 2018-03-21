@@ -10,6 +10,6 @@ namespace HospitalManagement.Models.Contracts
     public interface IPatient : IHuman
     {
         string Illness { get; set; }
-        List<Symptom> Symptoms { get; set; }
+        ICollection<ISymptom> Symptoms { get; set; }
     }
 }

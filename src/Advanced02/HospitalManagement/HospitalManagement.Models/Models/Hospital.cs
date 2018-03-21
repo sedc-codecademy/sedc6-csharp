@@ -16,6 +16,6 @@ namespace HospitalManagement.Models
         public string Name { get; set; }
         public decimal Revenue { get; set; }
         public int NumberOfEmployees { get; set; }
-        public List<Doctor> Doctors { get; set; }
+        public ICollection<IDoctor> Doctors { get; set; }
     }
 }

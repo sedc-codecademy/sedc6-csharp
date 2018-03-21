@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HospitalManagement.Models;
-using HospitalManagement.Models.Base;
+﻿using HospitalManagement.Models;
 using HospitalManagement.Models.Contracts;
 
 namespace HospitalManagement
@@ -31,11 +25,9 @@ namespace HospitalManagement
              */
         static void Main(string[] args)
         {
-            Human doctor = new Doctor();
-            Nurse nurse1 = new Nurse();
-            IEmployee nurse2 = new Nurse();
-            IDoctor doctor2 = new Doctor();
-            IEmployee doctor3 = doctor2;
+            IPatient patient = new Patient();
+            patient.Symptoms.Add(new Symptom());
+            System.Console.WriteLine("I made it!!!");
         }
     }
 }
