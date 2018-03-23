@@ -18,13 +18,25 @@ namespace Advanced03.DelegateDemo
             //var annualTax =
             //    employee.CalculateTax(AnnualCalculator);
 
+            //var monthlyTax =
+            //    employee.CalculateTax(x => x * 0.1);
+            //var annualTax =
+            //    employee.CalculateTax(x => x * 0.1 * 0.9 * 12);
+
+            //var monthlyTax = EmployeeHelpers
+            //    .CalculateTax(employee, x => x * 0.1);
+            //var annualTax = EmployeeHelpers
+            //    .CalculateTax(employee, x => x * 0.1 * 0.9 * 12);
+
+            //var fullName = EmployeeHelpers.GetFullName(employee);
+
             var monthlyTax =
                 employee.CalculateTax(x => x * 0.1);
-            var annualTax =
-                employee.CalculateTax(x => x * 0.1 * 0.9 * 12);
+
+            var fullName = employee.GetFullName();
 
             Console.WriteLine($"Monthly Tax: {monthlyTax}");
-            Console.WriteLine(annualTax);
+            Console.WriteLine();
         }
 
         //public static double MonthlyCalculator(double salary)

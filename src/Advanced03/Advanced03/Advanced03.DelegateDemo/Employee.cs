@@ -6,13 +6,19 @@ namespace Advanced03.DelegateDemo
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
+        public string LastName { get; set; }
         public double Salary { get; set; }
 
-        public double CalculateTax(Func<double,double> calculateTax)
-        {
-            var tax = calculateTax(Salary);
-            return Salary;
-        }
+        //public string GetFullName()
+        //{
+        //    return $"{FirstName} {LastName}";
+        //}
+
+        //public double CalculateTax(Func<double,double> calculateTax)
+        //{
+        //    var tax = calculateTax(Salary);
+        //    return Salary;
+        //}
 
         //public double CalculateTax(TaxCalculator calculateTax)
         //{
