@@ -10,11 +10,16 @@ namespace Advanced04.LinqDemos
         {
             IEnumerable<Person> people = new List<Person>
             {
-                new Person{Id=1,Age=12,FirstName="person1",LastName="mcPerson1" },
-                new Person{Id=1,Age=18,FirstName="person2",LastName="mcPerson2" },
-                new Person{Id=3,Age=13,FirstName="person3",LastName="mcPerson3" },
-                new Person{Id=4,Age=28,FirstName="person4",LastName="mcPerson4" },
-                new Person{Id=5,Age=25,FirstName="person5",LastName="mcPerson5" }
+                new Person{Id=1,Age=12,FirstName="dzevo",LastName="lastname5" },
+
+                new Person{Id=2,Age=18,FirstName="filip",LastName="lastname4" },
+                new Person{Id=25,Age=58,FirstName="filip",LastName="lastname6" },
+
+                new Person{Id=3,Age=13,FirstName="dejan",LastName="lastname3" },
+
+                new Person{Id=4,Age=28,FirstName="ivo",LastName="lastName2" },
+
+                new Person{Id=5,Age=25,FirstName="marija",LastName="lastname1" }
             };
 
             //IEnumerable has no Count property
@@ -72,6 +77,27 @@ namespace Advanced04.LinqDemos
             //people.Min(p => p.Age).PrintItem();
             //people.Max(p => p.Age).PrintItem();
 
+            //.Skip() .Take()
+            //people
+            //    .OrderBy(x => x.FirstName)
+            //    .ThenBy(x => x.LastName)
+            //    .PrintItems();
+            //    //.Skip(2)
+            //    //.Take(2)
+            //    //.OrderBy(x => x.LastName);
+
+            //.TakeWhile()
+            //people.TakeWhile(p => p.FirstName.Contains("o"))
+            //    .PrintItems();
+
+            //.SkipWhile()
+            //people.SkipWhile(p => p.FirstName.Contains("o"))
+            //.PrintItems();
+
+            //.GroupBy()
+            //var firstNameGroups = people.GroupBy(x => x.FirstName);
+            //var filipGroup = firstNameGroups.FirstOrDefault(x => x.Key == "filip");
+            //var firstFilipOlderThan20 = filipGroup.FirstOrDefault(x => x.Age > 20);
         }
     }
 }
