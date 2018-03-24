@@ -8,7 +8,7 @@ namespace Advanced04.LinqDemos
     {
         static void Main(string[] args)
         {
-            var people = new List<Person>
+            IEnumerable<Person> people = new List<Person>
             {
                 new Person{Id=1,Age=12,FirstName="person1",LastName="mcPerson1" },
                 new Person{Id=2,Age=18,FirstName="person2",LastName="mcPerson2" },
@@ -16,8 +16,17 @@ namespace Advanced04.LinqDemos
                 new Person{Id=4,Age=28,FirstName="person4",LastName="mcPerson4" },
                 new Person{Id=5,Age=38,FirstName="person5",LastName="mcPerson5" }
             };
-            
-            people.PrintItems();
+
+            //IEnumerable has no Count property
+            //but extensionMethod .Count()
+            var sumOfAges = people.Sum(p => p.Age);
+            var count = people.Count();
+            sumOfAges.PrintItem();
+
+            people.Count(p => p.Age >= 18)
+                .PrintItem();
+
+            ///people.PrintItems();
         }
     }
 }
