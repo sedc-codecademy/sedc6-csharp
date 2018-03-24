@@ -13,7 +13,16 @@ namespace Advanced04.LinqDemos
             Console.WriteLine(item);
         }
 
-        public static void PrintItems<T>(this List<T> collection)
+        //public static void PrintItems<T>(this List<T> collection)
+        //{
+        //    foreach (var item in collection)
+        //    {
+        //        //Console.WriteLine(item);
+        //        item.PrintItem();
+        //    }
+        //}
+
+        public static void PrintItems<T>(this IEnumerable<T> collection)
         {
             foreach (var item in collection)
             {
