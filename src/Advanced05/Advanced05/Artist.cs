@@ -13,5 +13,20 @@ namespace Advanced05
         {
             Id = id;FullName = fullName;ArtistType = artistType;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
