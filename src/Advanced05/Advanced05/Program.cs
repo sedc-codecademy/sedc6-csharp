@@ -14,7 +14,7 @@ namespace Advanced05
         static void Main(string[] args)
         {
             Init();// this method fills the arrays above with data
-
+            Linq2Sql1();
             //Task1();
             //Task2();
             //Task3();
@@ -24,11 +24,9 @@ namespace Advanced05
             //Task7();
             //Task8();
             //Task9();
-            Task10();
+            //Task10();
             //Task11();
-            
-            // - print the type of the artist(SoloArtist/Band) that has most albums published before year 2000
-            // - print the average song duration, of the album that has most songs
+            //Task12();
 
             // Bonus:
             // - print the longest song duration of the album that has least songs
@@ -37,6 +35,60 @@ namespace Advanced05
 
         }
 
+        private static void Linq2Sql1()
+        {
+            //var result =
+            //    from album in Albums
+            //    orderby album.Songs.Count descending
+            //    select album;
+
+
+            //Artists.FirstOrDefault(a => a.Id == Albums[0].ArtistId);
+
+            var anonymous = new
+            {
+                name = "dzevo",
+                colorOfHair = "red"
+            };
+
+            //var bands =
+            //    from artist1 in Artists
+            //    where artist1.ArtistType == ArtistType.Band
+            //    select new Artist
+            //    {
+            //        Id = artist1.Id,
+            //        FullName=artist1.FullName
+            //    };
+
+            //bands.Where(b => b.Albums)
+            //bands.PrintCollection();
+
+            //            @"select * from artists
+            //inner join albums on artists.Id = album.artistId";
+            var results = from artist in Artists
+                          join album in Albums
+                                on artist.Id equals album.ArtistId
+                          select new
+                          {
+                              Artist = artist,
+                              Album = album
+                          };
+
+            results.Select(x => x.Album);
+        }
+        private static void Task12()
+        {
+            IEnumerable<int> integers = new List<int>();
+
+            // - print the average song duration,
+            //of the album that has most songs
+            var albumWithMostSongs = Albums.OrderByDescending(
+                            album => album.Songs.Count()
+                            ).FirstOrDefault();
+            var averageSongDuration = albumWithMostSongs
+                .Songs.Average(song => song.Duration);
+            averageSongDuration.PrintItem();
+        }
         private static void Task1()
         {//1 - how many Songs start with the letter 'a' (case insensitive)
             var result = Songs.Count(s => s.Name.ToUpper().StartsWith("A"));
@@ -161,7 +213,20 @@ artist => artist.Albums.SelectMany(album => album.Songs).Count())
 
             Console.WriteLine(artistWithMostSongs.FullName);
         }
-
+        private static void Task11()
+        {
+            // - print the type of the 
+            //artist(SoloArtist/Band)
+            //that has most albums 
+            //published before year 2000
+            var result = Artists.OrderByDescending(
+                artist => artist.Albums.Count(
+                    album => album.Year < 2000
+                    )
+                )
+                .FirstOrDefault();
+            result.ArtistType.PrintItem();
+        }
 
 
         #region Data Initialization
