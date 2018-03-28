@@ -15,11 +15,17 @@ namespace Advanced05
         {
             Init();// this method fills the arrays above with data
 
-            Task1();
-            // - how many artists end with letter 'a' (case insensitive)
-            // - whats the name of the song with longest duration
-            // - whats the total Duration of all Songs
-            // - how many albums have Songs longer than 300 seconds
+            //Task1();
+            //Task2();
+            //Task3();
+            //Task4();
+            Task5();
+            //Task();
+            //Task();
+            //Task();
+            //Task();
+            //Task();
+            //Task();
             // - print the names of the artists(separated with "--"), that have more than one album of PopRock genre
             // - print the name of the album that has highest Average duration of a song
             // - how many characters has the song that has the shortest Duration
@@ -40,7 +46,40 @@ namespace Advanced05
             var result = Songs.Count(s => s.Name.ToUpper().StartsWith("A"));
             result.PrintItem();
         }
+        private static void Task2()
+        {// - how many artists end with letter 'a' (case insensitive)
+            var result =
+                Artists.Count(a => a.FullName.ToLower().EndsWith("a"));
+            result.PrintItem();
+        }
+        private static void Task3()
+        {
+            // - whats the name of the song 
+            //with longest duration
+            Song result =
+                 Songs.OrderByDescending(s => s.Duration)
+                 .FirstOrDefault();
 
+            result.PrintItem();
+        }
+        private static void Task4()
+        {
+            // - whats the total Duration of all Songs
+            var result =  Songs.Sum(s => s.Duration);
+            result.PrintItem();
+        }
+        private static void Task5()
+        {
+            // - how many albums have Songs longer than 300 seconds
+            //the hard way
+            //Albums.Where(a =>
+            //    a.Songs.Where(s=>s.Duration>300).Count()>0
+            //);
+            //the easy way
+            var result =
+      Albums.Count(a => a.Songs.Any(s => s.Duration > 300));
+            result.PrintItem();
+        }
 
 
         #region Data Initialization
