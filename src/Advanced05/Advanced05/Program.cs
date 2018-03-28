@@ -21,14 +21,12 @@ namespace Advanced05
             //Task4();
             //Task5();
             //Task6();
-            Task7();
+            //Task7();
             //Task8();
             //Task9();
-            //Task10();
+            Task10();
             //Task11();
-            // - how many characters has the song that has the shortest Duration
-            // - print the name and the genre of the album that has most songs
-            // - print the name of the artist that has most songs
+            
             // - print the type of the artist(SoloArtist/Band) that has most albums published before year 2000
             // - print the average song duration, of the album that has most songs
 
@@ -105,6 +103,66 @@ namespace Advanced05
             Console.WriteLine("result");
             result.PrintItem();
         }
+        private static void Task8()
+        {// - how many characters has the 
+            //name of the song 
+            //that has the shortest Duration
+            var result =
+                Songs
+                .OrderBy(s => s.Duration)
+                .FirstOrDefault()
+                .Name
+                .Count();
+
+            result.PrintItem();
+        }
+        private static void Task9()
+        {
+            // - print the name 
+            //and the genre 
+            //of the album that has most songs
+            var result = Albums
+                .OrderByDescending(a => a.Songs.Count)
+                .FirstOrDefault();
+            $"name:{result.Name}, genre:{result.Genre}".PrintItem();
+        }
+        private static void Task10()
+        {
+            // - print the name of the 
+            //artist that has most songs
+
+            //aggregation of songs accross
+            //all albums on foot
+            //var allSongs = new List<Song>();
+            //foreach (var album in Albums)
+            //{
+            //    allSongs.AddRange(album.Songs);
+            //}
+
+            //aggregation of songs accross
+            //all albums of an artist 
+            //on foot
+            //var allSongsOfArtist = new List<Song>();
+            //int artistId = 1;
+            //var albumsOfArtist =
+            //    Albums
+            //    .Where(album => album.ArtistId == artistId);
+
+            //foreach (var album in albumsOfArtist)
+            //{
+            //    allSongsOfArtist.AddRange(album.Songs);
+            //}
+            //int songsCountForArtist = allSongsOfArtist.Count;
+
+            var artistWithMostSongs =
+                Artists.OrderByDescending(
+artist => artist.Albums.SelectMany(album => album.Songs).Count())
+                    .FirstOrDefault();
+
+            Console.WriteLine(artistWithMostSongs.FullName);
+        }
+
+
 
         #region Data Initialization
         private static void Init()
