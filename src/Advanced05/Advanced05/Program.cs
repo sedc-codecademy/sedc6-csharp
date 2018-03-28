@@ -19,15 +19,13 @@ namespace Advanced05
             //Task2();
             //Task3();
             //Task4();
-            Task5();
-            //Task();
-            //Task();
-            //Task();
-            //Task();
-            //Task();
-            //Task();
-            // - print the names of the artists(separated with "--"), that have more than one album of PopRock genre
-            // - print the name of the album that has highest Average duration of a song
+            //Task5();
+            //Task6();
+            Task7();
+            //Task8();
+            //Task9();
+            //Task10();
+            //Task11();
             // - how many characters has the song that has the shortest Duration
             // - print the name and the genre of the album that has most songs
             // - print the name of the artist that has most songs
@@ -65,7 +63,7 @@ namespace Advanced05
         private static void Task4()
         {
             // - whats the total Duration of all Songs
-            var result =  Songs.Sum(s => s.Duration);
+            var result = Songs.Sum(s => s.Duration);
             result.PrintItem();
         }
         private static void Task5()
@@ -80,7 +78,33 @@ namespace Advanced05
       Albums.Count(a => a.Songs.Any(s => s.Duration > 300));
             result.PrintItem();
         }
-
+        private static void Task6()
+        {// - print the names of 
+            //the artists(separated with "--"), 
+            //that have more than one album of PopRock genre
+            IEnumerable<Artist> artists = Artists
+                .Where(a => a.Albums.Count(album =>
+                                 album.Genre == Genre.PopRock
+                                 ) > 1);
+            IEnumerable<string> results =
+                artists.Select(a => a.FullName);//
+            var result = string.Join("--", results);
+            result.PrintItem();
+        }
+        private static void Task7()
+        {// - print the name of the album
+            //that has highest Average duration of a song
+            var result = Albums.OrderByDescending(album =>
+                album.Songs.Average(song => song.Duration))
+                .FirstOrDefault();
+            //var averages = 
+            //    Albums.Select(a => 
+            //    a.Songs.Average(s => s.Duration));
+            //Console.WriteLine("averages");
+            //averages.PrintCollection();
+            Console.WriteLine("result");
+            result.PrintItem();
+        }
 
         #region Data Initialization
         private static void Init()

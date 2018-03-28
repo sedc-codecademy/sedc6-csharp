@@ -13,11 +13,11 @@ namespace Advanced05
         public Album() { }
         public Album(int id, int artistId, string name, Genre genre, int year)
         {
-            Id = id; ArtistId = artistId; Name = name; Genre = genre;Year = year;
+            Id = id; ArtistId = artistId; Name = name; Genre = genre; Year = year;
         }
         public override string ToString()
         {
-            return base.ToString();
+            return $"ID:{Id}, Name:{Name}, Genre{Genre}({Year})";
         }
     }
 }
