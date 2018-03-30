@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-
+using System.Linq;
+using System;
 namespace Advanced06
 {
     class Program
@@ -13,7 +14,7 @@ namespace Advanced06
         static void Main(string[] args)
         {
             Init();// this method fills the arrays above with data
-            //Task1();
+            Task1();
             //Task2();
             //Task3();
             //Task4();
@@ -30,34 +31,48 @@ namespace Advanced06
             // - print the longest song duration of the album that has least songs
             // - print the name of the album that has most songs that contain letter 'a' in the name
             // - print the name of the artist that has most songs that end wit letter 'd'
-
+            Console.ReadLine();
         }
 
         #region Tasks
-        private static void Task12()
-        {
-            // - print the average song duration,
-            //of the album that has most songs
-            
-        }
         private static void Task1()
-        {//1 - how many Songs start with the letter 'a' (case insensitive)
-            
+        {//1 - how many Songs start 
+         //with the letter 'a' (case insensitive)
+
+            //standard Linq Expression
+            //var result = Songs.Where(s => s.Name
+            //.StartsWith("a",System.StringComparison.InvariantCultureIgnoreCase)
+            //)
+            //.Select(s=>s)
+            //.Count();
+
+            //linq to sql
+            //var songs =from s in Songs
+            //        where s.Name.ToLower().StartsWith("a")
+            //        select s;
+            //var result = songs.Count();
+
+            //linq to sql advanced
+            var result =
+                (from s in Songs
+            where s.Name.ToLower().StartsWith("a")
+            select s).Count();
+            result.PrintItem();
         }
         private static void Task2()
         {// - how many artists end with letter 'a' (case insensitive)
-            
+
         }
         private static void Task3()
         {
             // - whats the name of the song 
             //with longest duration
-            
+
         }
         private static void Task4()
         {
             // - whats the total Duration of all Songs
-            
+
         }
         private static void Task5()
         {
@@ -67,38 +82,38 @@ namespace Advanced06
             //    a.Songs.Where(s=>s.Duration>300).Count()>0
             //);
             //the easy way
-            
+
         }
         private static void Task6()
         {// - print the names of 
-            //the artists(separated with "--"), 
-            //that have more than one album of PopRock genre
-            
+         //the artists(separated with "--"), 
+         //that have more than one album of PopRock genre
+
         }
         private static void Task7()
         {// - print the name of the album
-            //that has highest Average duration of a song
-            
+         //that has highest Average duration of a song
+
         }
         private static void Task8()
         {// - how many characters has the 
-            //name of the song 
-            //that has the shortest Duration
-          
+         //name of the song 
+         //that has the shortest Duration
+
         }
         private static void Task9()
         {
             // - print the name 
             //and the genre 
             //of the album that has most songs
-           
+
         }
         private static void Task10()
         {
             // - print the name of the 
             //artist that has most songs
 
-            
+
         }
         private static void Task11()
         {
@@ -106,7 +121,13 @@ namespace Advanced06
             //artist(SoloArtist/Band)
             //that has most albums 
             //published before year 2000
-           
+
+        }
+        private static void Task12()
+        {
+            // - print the average song duration,
+            //of the album that has most songs
+
         }
         #endregion
 
