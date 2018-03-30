@@ -14,11 +14,11 @@ namespace Advanced06
         static void Main(string[] args)
         {
             Init();// this method fills the arrays above with data
-            Task1();
+            //Task1();
             //Task2();
             //Task3();
             //Task4();
-            //Task5();
+            Task5();
             //Task6();
             //Task7();
             //Task8();
@@ -55,23 +55,32 @@ namespace Advanced06
             //linq to sql advanced
             var result =
                 (from s in Songs
-            where s.Name.ToLower().StartsWith("a")
-            select s).Count();
+                 where s.Name.ToLower().StartsWith("a")
+                 select s).Count();
             result.PrintItem();
         }
         private static void Task2()
-        {// - how many artists end with letter 'a' (case insensitive)
-
+        {// - how many artists end with 
+            //letter 'a' (case insensitive)
+            var result = (from a in Artists
+                          where a.FullName.ToLower().EndsWith("a")
+                          select a).Count();
+            result.PrintItem();
         }
         private static void Task3()
         {
             // - whats the name of the song 
             //with longest duration
-
+            var result = (from s in Songs
+                          orderby s.Duration descending
+                          select s.Name).FirstOrDefault();
+            result.PrintItem();
         }
         private static void Task4()
         {
-            // - whats the total Duration of all Songs
+            // - whats the total 
+            //Duration of all Songs
+            Songs.Sum(s => s.Duration).PrintItem();
 
         }
         private static void Task5()
@@ -81,8 +90,40 @@ namespace Advanced06
             //Albums.Where(a =>
             //    a.Songs.Where(s=>s.Duration>300).Count()>0
             //);
-            //the easy way
 
+            //the hardest way
+
+            //800+ items
+            //var variations = (from a in Albums
+            //                  from s in Songs
+            //                  select new { song = s, album = a }).ToList();
+            //86 items
+            //var variations = (from a in Albums
+            //                  from s in Songs
+            //                  where a.Id == s.AlbumId
+            //                  select new { song = s, album = a }).ToList();
+
+            //SQL
+            //select * from albums as a
+            //inner join Songs as s on s.AlbumId = a.Id
+
+            //LinqToSql
+            //var variations = (from a in Albums
+            //                  join s in Songs
+            //                    on a.Id equals s.AlbumId
+            //                  select new { song = s, album = a }).ToList();
+
+            IEnumerable<IGrouping<int, Song>> albums = (from a in Albums
+                              join s in Songs
+                                on a.Id equals s.AlbumId
+                               group s by a.Id into result
+                              select result).ToList();
+
+            var albumsFiltered = from v in albums
+                                 where v.Any(s => s.Duration > 300)
+                                 select v;
+
+            albumsFiltered.Count().PrintItem();
         }
         private static void Task6()
         {// - print the names of 
