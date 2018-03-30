@@ -20,9 +20,9 @@ namespace Advanced06
             //Task4();
             //Task5();
             //Task6();
-            Task7();
+            //Task7();
             //Task8();
-            //Task9();
+            Task9();
             //Task10();
             //Task11();
             //Task12();
@@ -169,7 +169,11 @@ namespace Advanced06
         {// - how many characters has the 
          //name of the song 
          //that has the shortest Duration
+            var result = (from s in Songs
+                          orderby s.Duration
+                          select s.Name.Length).FirstOrDefault();
 
+            result.PrintItem();
         }
         private static void Task9()
         {
@@ -177,11 +181,35 @@ namespace Advanced06
             //and the genre 
             //of the album that has most songs
 
+            //var songsGroupedByAlbumId = from s in Songs
+            //                            join a in Albums
+            //                            on s.AlbumId equals a.Id
+            //                            group s by s.AlbumId into result
+            //                            select result;
+            //var albumIdsOrderedBySongCount = from s in songsGroupedByAlbumId
+            //                                 orderby s.Count() descending
+            //                                 select s.Key;
+            //var albumId = albumIdsOrderedBySongCount.FirstOrDefault();
+            //var album = Albums.FirstOrDefault(a => a.Id == albumId);
+            //$"name: {album.Name}({album.Genre})".PrintItem();
+            
+            var albumId =
+                (from s in (from s in Songs
+                            join a in Albums
+                            on s.AlbumId equals a.Id
+                            group s by s.AlbumId into result
+                            select result)
+                 orderby s.Count() descending
+                 select s.Key).FirstOrDefault();
+
+            var album = Albums.FirstOrDefault(a => a.Id == albumId);
+            $"name: {album.Name}({album.Genre})".PrintItem();
+
         }
         private static void Task10()
         {
             // - print the name of the 
-            //artist that has most songs
+            // artist that has most songs
 
 
         }
