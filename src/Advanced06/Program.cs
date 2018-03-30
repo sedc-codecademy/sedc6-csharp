@@ -18,9 +18,9 @@ namespace Advanced06
             //Task2();
             //Task3();
             //Task4();
-            Task5();
+            //Task5();
             //Task6();
-            //Task7();
+            Task7();
             //Task8();
             //Task9();
             //Task10();
@@ -85,7 +85,8 @@ namespace Advanced06
         }
         private static void Task5()
         {
-            // - how many albums have Songs longer than 300 seconds
+            // - how many albums have Songs 
+            //longer than 300 seconds
             //the hard way
             //Albums.Where(a =>
             //    a.Songs.Where(s=>s.Duration>300).Count()>0
@@ -113,11 +114,12 @@ namespace Advanced06
             //                    on a.Id equals s.AlbumId
             //                  select new { song = s, album = a }).ToList();
 
-            IEnumerable<IGrouping<int, Song>> albums = (from a in Albums
-                              join s in Songs
-                                on a.Id equals s.AlbumId
-                               group s by a.Id into result
-                              select result).ToList();
+            IEnumerable<IGrouping<int, Song>> albums =
+                (from a in Albums
+                 join s in Songs
+                   on a.Id equals s.AlbumId
+                 group s by a.Id into result
+                 select result).ToList();
 
             var albumsFiltered = from v in albums
                                  where v.Any(s => s.Duration > 300)
@@ -129,12 +131,39 @@ namespace Advanced06
         {// - print the names of 
          //the artists(separated with "--"), 
          //that have more than one album of PopRock genre
+            var albumGroups = from a in Albums
+                              join ar in Artists
+                                   on a.ArtistId equals ar.Id
+                              group a by ar.Id into result
+                              select result;
+            var artistIds = from a in albumGroups
+                            where a.Count(album => album.Genre == Genre.PopRock) > 1
+                            select a.Key;
 
+            var artistNames = from ar in Artists
+                              where artistIds.Any(a => a == ar.Id)
+                              select ar.FullName;
+
+            string.Join("--", artistNames).PrintItem();
         }
         private static void Task7()
         {// - print the name of the album
          //that has highest Average duration of a song
-
+         //group songs by albumId
+            var songGroups = from s in Songs
+                             join a in Albums
+                                   on s.AlbumId equals a.Id
+                             group s by s.AlbumId into result
+                             select result;
+            //albumIds ordered (ascending) by SongsDuration
+            var albumIds = from s in songGroups
+                           orderby s.Average(song => song.Duration)
+                           select s.Key;
+            //Id of album that has longest song average duration
+            var albumId = albumIds.LastOrDefault();
+            //finding album who's id is equal to albumId
+            var album = Albums.FirstOrDefault(a => a.Id == albumId);
+            album.Name.PrintItem();
         }
         private static void Task8()
         {// - how many characters has the 
