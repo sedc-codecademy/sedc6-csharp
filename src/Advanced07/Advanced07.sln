@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Models", "Univer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Contracts", "University.Contracts\University.Contracts.csproj", "{4EEBE3CA-138F-4B70-A591-DF8CF4C74ECF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractClassDemo", "AbstractClassDemo\AbstractClassDemo.csproj", "{BA35633A-2904-4BB0-A788-5CADED892D88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{4EEBE3CA-138F-4B70-A591-DF8CF4C74ECF}.Release|x64.Build.0 = Release|Any CPU
 		{4EEBE3CA-138F-4B70-A591-DF8CF4C74ECF}.Release|x86.ActiveCfg = Release|Any CPU
 		{4EEBE3CA-138F-4B70-A591-DF8CF4C74ECF}.Release|x86.Build.0 = Release|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Debug|x64.Build.0 = Debug|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Debug|x86.Build.0 = Debug|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Release|x64.ActiveCfg = Release|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Release|x64.Build.0 = Release|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Release|x86.ActiveCfg = Release|Any CPU
+		{BA35633A-2904-4BB0-A788-5CADED892D88}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
