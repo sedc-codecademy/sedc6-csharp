@@ -18,7 +18,7 @@ namespace ReflectionDemo
                 Author = "john skeet"
             };
             Type type = book.GetType();
-            
+
             Console.WriteLine($"name: {type.Name}");
             Console.WriteLine($"fullName: {type.FullName}");
             Console.WriteLine($"namespace: {type.Namespace}");
@@ -37,6 +37,12 @@ namespace ReflectionDemo
             }
             Console.WriteLine("}");
 
+            MethodInfo toJsonMethod = type.GetMethod("ToJson");
+            MethodInfo[] methods = type.GetMethods();
+            foreach (var method in methods)
+            {
+                Console.WriteLine(method.Name);
+            }
 
         }
     }
