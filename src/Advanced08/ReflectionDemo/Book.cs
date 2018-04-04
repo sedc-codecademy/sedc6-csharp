@@ -27,5 +27,18 @@ namespace ReflectionDemo
             result += "}";
             return result;
         }
+
+        public string GetName()
+        {
+            return Name;
+        }
+        public string GetAuthor()
+        {
+            return Author;
+        }
+        public int GetId()
+        {
+            return Id;
+        }
     }
 }
